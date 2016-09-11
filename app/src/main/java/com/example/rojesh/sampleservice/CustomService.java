@@ -56,7 +56,6 @@ public class CustomService extends Service {
                         Thread.sleep(3000);
                     } catch (Exception e) {
                     }
-
                     if(isRunning){
                         Log.e(TAG, "Service running");
 
@@ -79,7 +78,7 @@ public class CustomService extends Service {
 
 
                 //Stop service once it finishes its task
-               // stopSelf();
+                stopSelf();
             }
         }).start();
     }
@@ -100,6 +99,7 @@ public class CustomService extends Service {
     public void onDestroy() {
         Toast.makeText(getApplicationContext(), "On Destroy", Toast.LENGTH_SHORT).show();
         Log.e("Sample", "Destroy Called");
+        isRunning = false;
         super.onDestroy();
     }
 }

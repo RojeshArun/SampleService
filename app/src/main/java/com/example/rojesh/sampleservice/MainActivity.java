@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-    private TextView mStart;
+    private TextView mStart,mStop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,19 @@ public class MainActivity extends Activity {
             }
         });
 
+        mStop = (TextView) findViewById(R.id.stop);
+        mStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopService();
+            }
+        });
+    }
+
+    //service onDestroy callback method will be called but sticky will wake up the service
+    private void stopService() {
+        Intent cstmServiec = new Intent(MainActivity.this, CustomService.class);
+        stopService(cstmServiec);
     }
 
 
