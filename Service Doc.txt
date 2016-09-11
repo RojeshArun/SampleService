@@ -1,0 +1,24 @@
+A service is an application component that can perform long running operation in the background (No user interface) in the Main (UI ) thread.
+
+Another application component can start a service and it will continue to run in the background even if the user switches to another application
+
+A component can bind to the service and interact with in and also perform inter process communication.
+
+Eg; Network transactions, Play music, File i/o ops, interact with Content providers from background
+
+Started
+startService();
+ a service can run in the background indefinitely, even if the component that started it is destroyed
+
+bound 
+A bound service runs only as long as another application component is bound to it
+
+
+Should you use a service or a thread?
+A service is simply a component that can run in the background even when the user is not interacting with your application. Thus, you should create a service only if that is what you need.
+
+If you need to perform work outside your main thread, but only while the user is interacting with your application, then you should probably instead create a new thread and not a service.
+
+
+
+http://www.101apps.co.za/index.php/articles/all-about-services.html
